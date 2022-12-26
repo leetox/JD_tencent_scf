@@ -1,7 +1,7 @@
 /*
 汽车签到
-cron 43 7,0/5 * * * * IP地址刷新通知.js
-const $ = new Env('IP地址刷新通知');
+cron 43 7,0/5 * * * * leetox_fcxx.js
+const $ = new Env('常州市房产每日房产信息');
 */
 
 const name = '常州市房产每日房产信息'
