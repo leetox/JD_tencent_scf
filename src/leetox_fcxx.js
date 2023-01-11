@@ -1,6 +1,6 @@
 /*
-汽车签到
-cron 43 7,0 18 * * * leetox_fcxx.js
+常州市每日房产信息
+cron 0 30 11,17 * * * leetox_fcxx.js
 const $ = new Env('常州市每日房产信息');
 */
 
