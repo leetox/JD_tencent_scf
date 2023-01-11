@@ -25,7 +25,7 @@ async function main() {
 async function printIp() {
     let now = new Date();
     const request = {
-        url: `http://myip.ipip.net`
+        url: `https://myip.ipip.net`
     }
     const { body } = await got(request)
     //发送通知
