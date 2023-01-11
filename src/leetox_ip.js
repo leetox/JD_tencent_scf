@@ -30,7 +30,7 @@ async function printIp() {
     const { body } = await got(request)
     //发送通知
     let nowStr = now.toLocaleDateString();
-    let text = `${nowStr} \n,${body}。`
+    let text = `${nowStr},${body}。`
     console.log(text);
     await notify.sendNotify('刷新IP地址',text);
 }
