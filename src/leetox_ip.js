@@ -6,6 +6,7 @@ const $ = new Env('刷新IP地址');
 
 const name = '刷新IP地址'
 const got = require('got')
+const leetox = require('./leetox')
 const notify = require('./sendNotify')
 
 !(async () => {
@@ -31,6 +32,15 @@ async function printIp() {
     //发送通知
     let nowStr = now.toLocaleDateString();
     let text = `${nowStr},${body}。`
-    console.log(text);
-    await notify.sendNotify('刷新IP地址',text);
+
+    if(text){
+        let end = text.indexOf("来自于")
+        text = text.substring(15,end).trim()
+        let current = await leetox.getEnv("ppp_ip")
+        if(!current || text !=current){
+            await notify.sendNotify('刷新IP地址',text);
+            await leetox.updateEnv("ppp_ip",text)
+        }
+    }
+
 }
