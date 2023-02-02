@@ -25,6 +25,8 @@ async function main() {
 
 async function printIp() {
     let now = new Date();
+    let houreTask = [6,9,13,20,0].includes(now.getHours()) && now.getMinutes()<5
+
     const request = {
         url: `https://myip.ipip.net`
     }
@@ -37,10 +39,13 @@ async function printIp() {
         let end = text.indexOf("来自于")
         text = text.substring(15,end).trim()
         let current = await leetox.getEnv("ppp_ip")
-        if(!current || text !=current){
-            await notify.sendNotify('刷新IP地址',text);
+        if(!current || text !=current || houreTask) {
+            let message = `${nowStr} 当前IP地址为：${text}`
+            console.log(message)
+            await notify.sendNotify("IP变更通知",message);
             await leetox.updateEnv("ppp_ip",text)
+        } else{
+            console.log("IP地址不需要变更通知")
         }
     }
-
 }
