@@ -41,3 +41,10 @@ module.exports.updateEnv = async (key, value) => {
     }
 };
 
+module.exports.getIp = async () => {
+    try{
+        let body = await got('http://ip-api.com/json/?lang=zh-CN').json();
+        return body;
+    }catch (e) {
+    }
+};
