@@ -49,4 +49,4 @@ module.exports.getIp = async () => {
     }
 };
 
-module.exports.YYYYMMDDhhmmss = "YYYY/MM/DD hh:mm:ss";
+module.exports.YYYYMMDDHHmmss = "YYYY/MM/DD HH:mm:ss";

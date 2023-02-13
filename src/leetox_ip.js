@@ -29,7 +29,7 @@ async function printIp() {
     let houreTask = [6,9,13,20,0].includes(now.getHours()) && now.getMinutes()<5
 
     //发送通知
-    let nowStr = moment(now).format(leetox.YYYYMMDDhhmmss)
+    let nowStr = moment(now).format(leetox.YYYYMMDDHHmmss)
     console.log(nowStr)
     let ipJson = await leetox.getIp()
     let {city,query} = ipJson
