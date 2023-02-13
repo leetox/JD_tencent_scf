@@ -8,6 +8,7 @@ const name = '刷新IP地址'
 const got = require('got')
 const leetox = require('./leetox')
 const notify = require('./sendNotify')
+const moment = require('moment')
 
 !(async () => {
     await main()
@@ -28,7 +29,8 @@ async function printIp() {
     let houreTask = [6,9,13,20,0].includes(now.getHours()) && now.getMinutes()<5
 
     //发送通知
-    let nowStr = now.toLocaleDateString();
+    let nowStr = moment(now).format(leetox.YYYYMMDDhhmmss)
+    console.log(nowStr)
     let ipJson = await leetox.getIp()
     let {city,query} = ipJson
     let message = `${nowStr} 当前IP地址为：${query} ${city}`
