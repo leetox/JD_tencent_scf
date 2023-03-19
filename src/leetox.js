@@ -49,4 +49,19 @@ module.exports.getIp = async () => {
     }
 };
 
+module.exports.getIp2 = async () => {
+    try{
+        let body = await got('http://checkip.synology.com/').text();
+        body = body.substring(body.indexOf(": ")+2,body.indexOf("</body>"));
+        body = {
+            query:body,
+            city:"未知"
+        }
+        console.log(body)
+        return body;
+    }catch (e) {
+        console.log(e)
+    }
+};
+
 module.exports.YYYYMMDDHHmmss = "YYYY/MM/DD HH:mm:ss";

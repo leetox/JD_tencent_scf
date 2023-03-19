@@ -31,7 +31,7 @@ async function printIp() {
     //发送通知
     let nowStr = moment(now).format(leetox.YYYYMMDDHHmmss)
     console.log(nowStr)
-    let ipJson = await leetox.getIp()
+    let ipJson = await leetox.getIp2()
     let {city,query} = ipJson
     let message = `${nowStr} 当前IP地址为：${query} ${city}`
     console.log(message)
